@@ -1,0 +1,51 @@
+﻿<Page
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:SeismicResponseSpectrum.Ui"
+      xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+      x:Class="SeismicResponseSpectrum.Ui.AboutPage"
+      mc:Ignorable="d"
+      d:DesignHeight="303" d:DesignWidth="648"
+      Title="AboutPage">
+
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="4*"/>
+			<ColumnDefinition Width="1*"/>
+			<ColumnDefinition Width="1*"/>
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="50" />
+			<RowDefinition />
+		</Grid.RowDefinitions>
+		<TextBlock TextWrapping="Wrap" Text="RESPONSE SPECTRUM" Margin="5" Grid.ColumnSpan="3" FontSize="26.667" />
+        <mui:BBCodeBlock Margin="5" Grid.Row="1" Grid.Column="0" 
+BBCode="Response Spectrum is a very simple open source application for calculating the response spectrum of a SDoF corresponding to one or several accelerogram records. Application is available from:&#10;
+&#9;[url=http://ResponseSpectrum.codeplex.com]http://ResponseSpectrum.codeplex.com[/url]&#10;
+Some documentation available from [url=https://responsespectrum.codeplex.com/documentation]here[/url] &#10;
+You can also use [url=https://responsespectrum.codeplex.com/discussions]discussion section on application website[/url] for reporting bugs, asking question or feature and leaving feedback&#10;
+&#10;Powered by:&#10;
+&#9;• [url=https://mui.codeplex.com/]Modern UI for WPF[/url]&#10;
+&#9;• [url=https://wpftoolkit.codeplex.com/]Extended WPF Toolkit™ Community Edition[/url]&#10;
+&#9;• [url=https://dynamicdatadisplay.codeplex.com/]Dynamic Data Display[/url]&#10;" />
+
+        <TextBlock Margin="5" Grid.Row="1" TextWrapping="Wrap" Visibility="Collapsed"><Run
+				Text="Response Spectrum is a simple open source application for calculating the response spectrum of a SDoF system against accelerogram record(s). Application is available from:" /><LineBreak/><InlineUIContainer>
+				<TextBlock TextWrapping="Wrap" Text="http://ResponseSpectrum.codeplex.com" TextDecorations="Underline"
+					FontStyle="Italic" MouseDown="mainUrlBlock_MouseDown" Margin="20,0,0,0" Cursor="Hand" />
+
+				
+			</InlineUIContainer><LineBreak />
+				<LineBreak/>
+			<Run Text="You can use " /><InlineUIContainer>
+				<TextBlock TextWrapping="Wrap" Text="discussion section on application website" TextDecorations="Underline"
+					FontStyle="Italic"  Cursor="Hand" MouseDown="DiscussionTextBlock_MouseDown" />
+
+			</InlineUIContainer><Run Text=" "/><Run Text="if you have any question or feedback" /></TextBlock>
+		<Viewbox Grid.Column="1" Margin="0" Grid.Row="1" VerticalAlignment="Top">
+			<local:Logo/>
+		</Viewbox>
+	</Grid>
+</Page>

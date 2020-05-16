@@ -1,0 +1,23 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	x:Class="SeismicResponseSpectrum.Ui.Logo"
+	x:Name="UserControl"
+	d:DesignWidth="480" d:DesignHeight="480" Width="480" Height="480">
+
+	<Grid x:Name="LayoutRoot">
+		<Ellipse StrokeStartLineCap="Round" StrokeEndLineCap="Round" StrokeThickness="10" StrokeLineJoin="Round" Fill="#FF464855"/>
+		<Path Data="M186.95844,5 C214.22107,155.93581 362.58636,242.73825 414.11484,260.95169 414.11484,260.95169 178.93784,5.0000014 186.95844,5 z" HorizontalAlignment="Center" Height="256.161" Margin="202.293,128,52.146,95.839" Stretch="Fill" StrokeDashCap="Round" StrokeThickness="10" StrokeLineJoin="Round" VerticalAlignment="Center" Width="225.561" Fill="#FF3D3E4A"/>
+		<Path Data="M163.50577,5 C171.15323,5.0000029 178.93784,5.0000014 186.95844,5 214.22107,155.93581 362.58636,242.73825 414.11484,260.95169 L415.63864,261.47357 413.07053,264.66229 C369.05099,318.00162 302.43329,352 227.87485,352 128.46359,352 43.16922,291.55844 6.7352448,205.41882 L5,201.17175 5.3703461,199.94075 C14.624695,169.16101 53.107513,40.101315 63.761887,5.0000439 99.801941,5.0000429 130.36664,5.0000157 163.50577,5 z" HorizontalAlignment="Center" Height="357" Margin="12.125,128,47.236,-5" Stretch="Fill" StrokeDashCap="Round" StrokeThickness="10" StrokeLineJoin="Round" VerticalAlignment="Center" Width="420.639" Fill="#FF595B6C" d:IsHidden="True" Visibility="Collapsed"/>
+		<Ellipse HorizontalAlignment="Left" Height="35.667" Margin="59.667,116.333,0,0" Stroke="Black" StrokeThickness="10" StrokeLineJoin="Round" VerticalAlignment="Top" Width="34" d:IsHidden="True" Visibility="Collapsed"/>
+		<Ellipse HorizontalAlignment="Left" Height="35.667" Margin="181.334,116.333,0,0" Stroke="Black" StrokeThickness="10" StrokeLineJoin="Round" VerticalAlignment="Top" Width="34" d:IsHidden="True" Visibility="Collapsed"/>
+		<Path Data="M5.3703461,199.94075 C14.624695,169.16101 53.107513,40.101315 63.761887,5.0000439 99.801941,5.0000429 130.36664,5.0000157 163.50577,5 171.15323,5.0000029 178.93784,5.0000014 186.95844,5 214.22107,155.93581 362.58636,242.73825 414.11484,260.95169" HorizontalAlignment="Center" Height="265.952" Margin="12.495,128,48.76,86.048" Stretch="Fill" StrokeDashCap="Round" StrokeThickness="15" StrokeLineJoin="Round" VerticalAlignment="Center" Width="418.745" Stroke="White" StrokeStartLineCap="Round" StrokeEndLineCap="Round">
+			<Path.Effect>
+				<DropShadowEffect ShadowDepth="0" BlurRadius="24" Opacity="0.295"/>
+			</Path.Effect>
+		</Path>
+	</Grid>
+</UserControl>

@@ -1,0 +1,19 @@
+﻿<mui:ModernWindow x:Class="SeismicResponseSpectrum.Ui.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+        Title="MainWindow" Height="350" Width="525"
+		ContentSource="/MainPage.xaml" Style="{DynamicResource ModernWindowStyle1}" WindowState="Maximized"
+                  >
+	
+    <mui:ModernWindow.MenuLinkGroups>
+        <mui:LinkGroup DisplayName="Response Spectra">
+            <mui:LinkGroup.Links>
+                <mui:Link DisplayName="Home" Source="/MainPage.xaml" />
+                <mui:Link DisplayName="Settings" Source="/SettingsPage.xaml" />
+                <mui:Link DisplayName="About" Source="/AboutPage.xaml" />
+            </mui:LinkGroup.Links>
+        </mui:LinkGroup>
+        
+    </mui:ModernWindow.MenuLinkGroups>
+</mui:ModernWindow>

@@ -1,0 +1,32 @@
+﻿<UserControl x:Name="userControl" x:Class="SeismicResponseSpectrum.Ui.TutorialLayer"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:ui="clr-namespace:SeismicResponseSpectrum.Ui"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+	<UserControl.Resources>
+		<Storyboard x:Key="FlashForRect" RepeatBehavior="4x">
+			<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="rectangle">
+               
+                <EasingColorKeyFrame KeyTime="0:0:0.2" Value="#008FFF"/>
+                <EasingColorKeyFrame KeyTime="0:0:0.4" Value="Transparent"/>
+			</ColorAnimationUsingKeyFrames>
+		</Storyboard>
+	</UserControl.Resources>
+	<UserControl.Triggers>
+		<EventTrigger RoutedEvent="FrameworkElement.Loaded">
+			<BeginStoryboard Storyboard="{StaticResource FlashForRect}"/>
+		</EventTrigger>
+		<EventTrigger RoutedEvent="ui:TutorialLayer.CurrentStepChanged">
+			<BeginStoryboard Storyboard="{StaticResource FlashForRect}"/>
+		</EventTrigger>
+	</UserControl.Triggers>
+    <Canvas  Name="MainCanvas">
+
+        <ui:CustomPopup x:Name="mainPopup" IsHitTestVisible="False" Canvas.Left="{Binding PopupLocation.X, ElementName=userControl}" Canvas.Top="{Binding PopupLocation.Y, ElementName=userControl}" Title="{Binding Title}" Memo="{Binding Memo}" DataContext="{Binding CurrentStep, ElementName=userControl}" />
+        <Rectangle x:Name="rectangle" IsHitTestVisible="False" Width="{Binding TargetArea.Width, FallbackValue=50}" Height="{Binding TargetArea.Height, FallbackValue=50}" Canvas.Left="{Binding TargetArea.X, FallbackValue=100}" Canvas.Top="{Binding TargetArea.Y, FallbackValue=150}"  DataContext="{Binding CurrentStep, ElementName=userControl}" Stroke="Red" Fill="#50131313" />
+
+    </Canvas>
+</UserControl>

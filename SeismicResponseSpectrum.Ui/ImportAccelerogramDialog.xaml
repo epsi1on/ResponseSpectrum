@@ -1,0 +1,100 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" xmlns:xcdg="http://schemas.xceed.com/wpf/xaml/datagrid"
+    xmlns:global="clr-namespace:"
+    xmlns:ui="clr-namespace:SeismicResponseSpectrum.Ui"
+    mc:Ignorable="d" x:Class="SeismicResponseSpectrum.Ui.ImportAccelerogramDialog"
+        Title="Import Accelerogram" Width="600" Height="647" >
+	<Window.Resources>
+		<xctk:InverseBoolConverter x:Key="InverseBoolConverter"/>
+	</Window.Resources>
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="35"/>
+			<RowDefinition Height="91*"/>
+			<RowDefinition Height="65*"/>
+			<RowDefinition Height="30"/>
+			<RowDefinition Height="421*"/>
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="200"/>
+			<ColumnDefinition Width="333*"/>
+			<ColumnDefinition Width="224*"/>
+		</Grid.ColumnDefinitions>
+		<Grid Grid.RowSpan="3">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition />
+				<ColumnDefinition />
+			</Grid.ColumnDefinitions>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="30"/>
+				<RowDefinition Height="30"/>
+				<RowDefinition Height="30"/>
+				<RowDefinition Height="30"/>
+				<RowDefinition Height="30"/>
+				<RowDefinition Height="30"/>
+				<RowDefinition Height="30"/>
+			</Grid.RowDefinitions>
+			<TextBlock TextWrapping="Wrap" Text="First Line" Margin="5" Grid.Row="1"/>
+			<TextBlock Grid.Row="2" TextWrapping="Wrap" Text="Last Line" Margin="5"/>
+			<TextBlock Grid.Row="3" TextWrapping="Wrap" Text="Time Step dt" Margin="5"/>
+			<TextBlock Grid.Row="4" TextWrapping="Wrap" Text="Scaling Factor" Margin="5"/>
+			
+			<xctk:IntegerUpDown x:Name="txtFirstLine" Grid.Column="1" Grid.Row="1" Value="{Binding FirstLine, ValidatesOnDataErrors=True}" Margin="5" Minimum="0"/>
+            <xctk:IntegerUpDown x:Name="txtLastLine" Grid.Column="1" Grid.Row="2" Value="{Binding LastLine, ValidatesOnDataErrors=True}" Margin="5" Minimum="0"/>
+
+            <xctk:DoubleUpDown x:Name="TimeStepUpDown" Grid.Column="1" Grid.Row="3" Value="{Binding TimeStepDt, Mode=TwoWay, ValidatesOnDataErrors=True}" Margin="5" Minimum="0" IsEnabled="{Binding TimeAndAcceleration, Converter={StaticResource InverseBoolConverter}}" Increment="0.005"/>
+            <xctk:DoubleUpDown Grid.Column="1" Grid.Row="4" Value="{Binding ScalingFactor, ValidatesOnDataErrors=True}" Margin="5" Minimum="0" Increment="0.1"/>
+            <TextBlock Grid.ColumnSpan="2" Margin="5" Grid.Row="5" TextWrapping="Wrap" Text="Acceleration unit: g"/>
+            <TextBlock Margin="5" TextWrapping="Wrap" Text="Record Name"/>
+            <TextBox Grid.Column="1" Margin="5" TextWrapping="Wrap" Text="{Binding RecordName, ValidatesOnDataErrors=True}"/>
+		</Grid>
+		<Grid Grid.Column="1" Grid.RowSpan="2">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="30"/>
+				<RowDefinition Height="30"/>
+				<RowDefinition Height="30"/>
+				<RowDefinition />
+			</Grid.RowDefinitions>
+			<RadioButton IsChecked="{Binding SinlgeAcceleration}" Content="Single acceleration value per line" Margin="5"/>
+			<RadioButton IsChecked="{Binding TimeAndAcceleration}" Content="Time &amp; acceleration values per line" Grid.Row="1" Margin="5"/>
+			<RadioButton IsChecked="{Binding MultipleAcceleration}" Content="Multiple acceleration values per line" Grid.Row="2" Margin="5"/>
+		</Grid>
+		<Grid Grid.Column="1" Grid.Row="2">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition />
+				<ColumnDefinition Width="100"/>
+			</Grid.ColumnDefinitions>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="30"/>
+				<RowDefinition Height="30"/>
+				<RowDefinition Height="181*"/>
+			</Grid.RowDefinitions>
+			<xctk:IntegerUpDown Value="{Binding AccelerationColumn, ValidatesOnDataErrors=True}" Margin="5" Grid.Column="1" IsEnabled="{Binding TimeAndAcceleration}"/>
+			<xctk:IntegerUpDown Value="{Binding TimeColumn, ValidatesOnDataErrors=True}" Margin="5" Grid.Column="1" Grid.Row="1" IsEnabled="{Binding TimeAndAcceleration}"/>
+			<TextBlock Margin="5" TextWrapping="Wrap" Text="Acceleration Column"/>
+			<TextBlock Margin="5" Grid.Row="1" TextWrapping="Wrap" Text="Time Column"/>
+		</Grid>
+		<Grid Grid.Column="2" Grid.RowSpan="3" Margin="5">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="35"/>
+				<RowDefinition Height="35"/>
+				<RowDefinition Height="35"/>
+			</Grid.RowDefinitions>
+			<Button Content="OK" Margin="5" Click="btnOk_Click" IsEnabled="{Binding HaveError, Converter={StaticResource InverseBoolConverter}}"/>
+			<Button Content="Cancel" Margin="5" Grid.Row="1" Click="btnCancel_Click"/>
+            <Button Content="Help" Margin="5" Grid.Row="2" Click="btnHelp_Click"/>
+		</Grid>
+
+        <xctk:RichTextBox Name="editor" Text="{Binding AccelerationFileContent}" Grid.Row="5" Grid.ColumnSpan="3" Margin="5" 
+                          ui:RichTextBoxHelper.HighlightedLineNumber="{Binding HighlightedLineNumber}">
+            <xctk:RichTextBox.TextFormatter>
+                <xctk:PlainTextFormatter />
+            </xctk:RichTextBox.TextFormatter>
+        </xctk:RichTextBox >
+		<TextBlock Grid.Row="3" TextWrapping="Wrap" Text="Acceleration File:" Margin="5"/>
+		<TextBlock Grid.ColumnSpan="2" Grid.Column="1" Margin="5" Grid.Row="3" TextWrapping="Wrap" Text="{Binding Error, FallbackValue=* Error Note}" Foreground="Red"/>
+
+	</Grid>
+</Window>
