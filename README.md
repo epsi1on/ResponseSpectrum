@@ -8,6 +8,7 @@ User Interface
 
 ![PGx](/Screenshots/PGx.png?raw=true)
 
+
 Documentation
 See How does it calculate response spectrums for more information on calculations in application: [calculation in detail](https://github.com/epsi1on/ResponseSpectrum/wiki/Calculations-in-details)
 
