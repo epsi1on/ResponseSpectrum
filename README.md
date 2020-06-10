@@ -4,9 +4,9 @@ This application provides a very simple environment for calculating response spe
 
 User Interface
 
-![UI](/screenshots/ui.png?raw=true)
+![UI](/Screenshots/UI.png?raw=true)
 
-![PGx](/screenshots/pgx.png?raw=true)
+![PGx](/Screenshots/PGx.png?raw=true)
 
 Documentation
 See How does it calculate response spectrums for more information on calculations in application: [calculation in detail](https://github.com/epsi1on/ResponseSpectrum/wiki/Calculations-in-details)
@@ -14,4 +14,4 @@ See How does it calculate response spectrums for more information on calculation
 
 Ability to create tripartite spectrum for records (click here to see higher resolution image):
 
-[![Tripartite Diagram](/screenshots/trip.thum.png?raw=true)](/screenshots/trip.full.png?raw=true)
+[![Tripartite Diagram](/Screenshots/trip.thum.png?raw=true)](/Screenshots/trip.full.png?raw=true)
