@@ -1,3 +1,5 @@
+# Download
+download binary executable file from right panel Release section, or this link: https://github.com/epsi1on/ResponseSpectrum/releases/download/1.0.0/Binary-exe.zip
 # Seismic Response Spectrum
 
 This application provides a very simple environment for calculating response spectrum and tripartite spectrum of an SDoF system against seismic records.
